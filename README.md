@@ -89,7 +89,17 @@ You should see the EXTERNAL-IP field populated with a MetalLB IP like 192.168.1.
 ```
 ###
 Déploployer SSL/HTTPS:
+kubectl apply -f selfsigned-clusterissuer.yaml
+kubectl apply -f wordpress-cert.yaml
 
+Update wordpress Ingress:
+spec:
+  tls:
+    - hosts:
+        - wordpress.local
+      secretName: wordpress-local-tls
 
+Check:
+curl -k https://wordpress.local
 ```
 
