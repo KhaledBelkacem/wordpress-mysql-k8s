@@ -101,5 +101,20 @@ spec:
 
 Check:
 curl -k https://wordpress.local
+
+
+[Browser / curl on host]
+    |
+    v
+[Metallb (port 80)]
+    |
+    v
+[Ingress Controller in K8s ]
+    |
+    v
+[Ingress Rule -> WordPress Service tls]
+    |
+    v
+[WordPress Pod]
 ```
 
